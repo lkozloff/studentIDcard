@@ -10,3 +10,5 @@ Currently pulls from a .csv file with the following fields:
 - Emergency Contact 1
 - Emergency Contact 2
 - Grade (unused)
+
+We're using print CSS to generate A8 sized cards with watermarks.
