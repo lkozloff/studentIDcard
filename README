@@ -1,0 +1,12 @@
+studentIDCard
+An experiment in generating student ID cards.
+
+Currently pulls from a .csv file with the following fields:
+
+- Student ID
+- DOB
+- First Name
+- Family Name
+- Emergency Contact 1
+- Emergency Contact 2
+- Grade (unused)
