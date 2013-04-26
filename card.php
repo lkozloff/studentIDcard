@@ -5,8 +5,8 @@
 								$sid = "123", $bloodtype="Unknown",$dob="12-Jan-1999",
 								$econtact1="017-922-088",$econtact2="092-094-843"){
 
-			$this->firstname = $firstname;
-			$this->lastname = $lastname;
+			$this->firstname = trim($firstname);
+			$this->lastname = trim($lastname);
 			$this->sid = $sid;
 			if($bloodtype != null || $bloodtype !="")
 				$this->bloodtype = $bloodtype;
@@ -34,7 +34,7 @@
 					<table style=\"width: 13.0cm;\"  >
 					 <tr><td><img src = \"logo.jpg\"></td><td rowspan=\"2\" align = \"right\" style=\"width:2.2cm;\"><img src = \"$photo\" width=\"2cm\"></td></tr>
 					 <tr><td><b style=\"font-size: x-large;\">$this->lastname, $this->firstname</b></td></tr>
-							<b>Student ID: $this->sid</b><br>
+					<tr><td><b>Student ID: $this->sid</b><br>
 							<i style=\"font-size:x-small\">expires: 10-10-10</i></td></tr>
 					 <tr><td>DOB:</td> <td>$this->dob</td></tr>
 					 <tr><td>Blood Type:</td><td>$this->bloodtype</td></tr>
@@ -51,7 +51,6 @@
 		function toRawHTML(){
 			if(file_exists("StudentPhotos/$this->sid.JPG")) $photo="StudentPhotos/$this->sid.JPG";
 			else $photo = "StudentPhotos/nophoto.JPG";
-			$bc = new TCPDFBarcode("C128","C128");
 
 
 			return("
@@ -74,7 +73,7 @@
 						</table>
 						</div>
 						<div class = \"barcode\">
-						<img src = \"barcodes/$this->sid.png\">
+						<img src = \"bcgen/html/image.php?code=code128&o=1&t=40&r=2&text=$this->sid&f=0&a1=A&a2=\">
 						</div>
 
 
